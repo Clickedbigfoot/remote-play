@@ -21,6 +21,12 @@
       <h1 class="title">Remote Play</h1>
     </header>
     <main class="container">
+      <button onclick="sendText()" class="button type">
+        Keyboard
+      </button>
+      <button onclick="callEndpoint('/backspace')" class="button backspace">
+        Backspace
+      </button>
       <button onclick="callEndpoint('/toggle')" class="button full-width">
         Play/Pause
       </button>

@@ -11,6 +11,11 @@ function callEndpoint(endpoint) {
   xhr.send();
 }
 
+function sendText() {
+  var text = prompt('Type to your computer!')
+  callEndpoint(`/send_text${encodeURIComponent(text)}`)
+}
+
 function touchStart(ev) {
   ev.preventDefault();
   start.x = ev.changedTouches[0].clientX;

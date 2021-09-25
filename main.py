@@ -5,6 +5,7 @@ and translate them to mouse and keyboard actions using pyautogui.
 
 import os
 import sys
+from urllib.parse import unquote
 import netifaces
 import pyautogui
 import uvicorn
@@ -57,6 +58,11 @@ def handle_command(cmd):
             pyautogui.press("KEYTYPE_SOUND_DOWN")
         else:
             pyautogui.press("volumedown")
+    elif cmd == "backspace":
+        pyautogui.press("backspace")
+    elif len(cmd) > 9 and cmd[:9] == "send_text":
+        text = unquote(cmd[9:])
+        pyautogui.write(text, 0.1)
 
 
 @app.get("/")
